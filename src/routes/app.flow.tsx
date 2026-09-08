@@ -31,7 +31,7 @@ export const Route = createFileRoute("/app/flow")({
 });
 
 function FlowPage() {
-  const today = weekProgram[3];
+  const today = weekProgram[3]!;
 
   return (
     <main>

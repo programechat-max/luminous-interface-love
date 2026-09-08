@@ -30,8 +30,8 @@ function NutritionPage() {
   const protein = logged.reduce((a, m) => a + m.protein, 0);
   const carbs = logged.reduce((a, m) => a + m.carbs, 0);
   const fat = logged.reduce((a, m) => a + m.fat, 0);
-  const calTarget = dailyRings[0].target;
-  const proTarget = dailyRings[1].target;
+  const calTarget = dailyRings[0]!.target;
+  const proTarget = dailyRings[1]!.target;
 
   const toggle = (id: string) =>
     setMeals((prev) =>
