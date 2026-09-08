@@ -43,7 +43,7 @@ function FlowPage() {
           <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-3">
             <div className="min-w-0">
               <p className="eyebrow text-primary-glow">Bugünün odağı</p>
-              <h2 className="mt-1 truncate text-2xl font-extrabold">
+              <h2 className="mt-1 text-2xl font-extrabold leading-tight">
                 Perşembe · {today.title}
               </h2>
               <p className="mt-1 text-sm text-muted-foreground">
