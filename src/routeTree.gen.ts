@@ -15,7 +15,11 @@ import { Route as OnboardingRouteImport } from './routes/onboarding'
 import { Route as RegisterRouteImport } from './routes/register'
 import { Route as AppIndexRouteImport } from './routes/app.index'
 import { Route as AppChatRouteImport } from './routes/app.chat'
+import { Route as AppDailyRouteImport } from './routes/app.daily'
 import { Route as AppFlowRouteImport } from './routes/app.flow'
+import { Route as AppNutritionRouteImport } from './routes/app.nutrition'
+import { Route as AppSettingsRouteImport } from './routes/app.settings'
+import { Route as AppWorkoutRouteImport } from './routes/app.workout'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -47,9 +51,29 @@ const AppChatRoute = AppChatRouteImport.update({
   path: '/chat',
   getParentRoute: () => AppRoute,
 } as any)
+const AppDailyRoute = AppDailyRouteImport.update({
+  id: '/daily',
+  path: '/daily',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppFlowRoute = AppFlowRouteImport.update({
   id: '/flow',
   path: '/flow',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppNutritionRoute = AppNutritionRouteImport.update({
+  id: '/nutrition',
+  path: '/nutrition',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppSettingsRoute = AppSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppWorkoutRoute = AppWorkoutRouteImport.update({
+  id: '/workout',
+  path: '/workout',
   getParentRoute: () => AppRoute,
 } as any)
 
@@ -59,7 +83,11 @@ export interface FileRoutesByFullPath {
   '/onboarding': typeof OnboardingRoute
   '/register': typeof RegisterRoute
   '/app/chat': typeof AppChatRoute
+  '/app/daily': typeof AppDailyRoute
   '/app/flow': typeof AppFlowRoute
+  '/app/nutrition': typeof AppNutritionRoute
+  '/app/settings': typeof AppSettingsRoute
+  '/app/workout': typeof AppWorkoutRoute
   '/app/': typeof AppIndexRoute
 }
 export interface FileRoutesByTo {
@@ -67,7 +95,11 @@ export interface FileRoutesByTo {
   '/onboarding': typeof OnboardingRoute
   '/register': typeof RegisterRoute
   '/app/chat': typeof AppChatRoute
+  '/app/daily': typeof AppDailyRoute
   '/app/flow': typeof AppFlowRoute
+  '/app/nutrition': typeof AppNutritionRoute
+  '/app/settings': typeof AppSettingsRoute
+  '/app/workout': typeof AppWorkoutRoute
   '/app': typeof AppIndexRoute
 }
 export interface FileRoutesById {
@@ -77,7 +109,11 @@ export interface FileRoutesById {
   '/onboarding': typeof OnboardingRoute
   '/register': typeof RegisterRoute
   '/app/chat': typeof AppChatRoute
+  '/app/daily': typeof AppDailyRoute
   '/app/flow': typeof AppFlowRoute
+  '/app/nutrition': typeof AppNutritionRoute
+  '/app/settings': typeof AppSettingsRoute
+  '/app/workout': typeof AppWorkoutRoute
   '/app/': typeof AppIndexRoute
 }
 export interface FileRouteTypes {
@@ -88,10 +124,24 @@ export interface FileRouteTypes {
     | '/onboarding'
     | '/register'
     | '/app/chat'
+    | '/app/daily'
     | '/app/flow'
+    | '/app/nutrition'
+    | '/app/settings'
+    | '/app/workout'
     | '/app/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/onboarding' | '/register' | '/app/chat' | '/app/flow' | '/app'
+  to:
+    | '/'
+    | '/onboarding'
+    | '/register'
+    | '/app/chat'
+    | '/app/daily'
+    | '/app/flow'
+    | '/app/nutrition'
+    | '/app/settings'
+    | '/app/workout'
+    | '/app'
   id:
     | '__root__'
     | '/'
@@ -99,7 +149,11 @@ export interface FileRouteTypes {
     | '/onboarding'
     | '/register'
     | '/app/chat'
+    | '/app/daily'
     | '/app/flow'
+    | '/app/nutrition'
+    | '/app/settings'
+    | '/app/workout'
     | '/app/'
   fileRoutesById: FileRoutesById
 }
@@ -154,6 +208,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppChatRouteImport
       parentRoute: typeof AppRoute
     }
+    '/app/daily': {
+      id: '/app/daily'
+      path: '/daily'
+      fullPath: '/app/daily'
+      preLoaderRoute: typeof AppDailyRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/app/flow': {
       id: '/app/flow'
       path: '/flow'
@@ -161,18 +222,47 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppFlowRouteImport
       parentRoute: typeof AppRoute
     }
+    '/app/nutrition': {
+      id: '/app/nutrition'
+      path: '/nutrition'
+      fullPath: '/app/nutrition'
+      preLoaderRoute: typeof AppNutritionRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/settings': {
+      id: '/app/settings'
+      path: '/settings'
+      fullPath: '/app/settings'
+      preLoaderRoute: typeof AppSettingsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/workout': {
+      id: '/app/workout'
+      path: '/workout'
+      fullPath: '/app/workout'
+      preLoaderRoute: typeof AppWorkoutRouteImport
+      parentRoute: typeof AppRoute
+    }
   }
 }
 
 interface AppRouteChildren {
   AppChatRoute: typeof AppChatRoute
+  AppDailyRoute: typeof AppDailyRoute
   AppFlowRoute: typeof AppFlowRoute
+  AppNutritionRoute: typeof AppNutritionRoute
+  AppSettingsRoute: typeof AppSettingsRoute
+  AppWorkoutRoute: typeof AppWorkoutRoute
   AppIndexRoute: typeof AppIndexRoute
 }
 
 const AppRouteChildren: AppRouteChildren = {
   AppChatRoute: AppChatRoute,
+  AppDailyRoute: AppDailyRoute,
   AppFlowRoute: AppFlowRoute,
+  AppNutritionRoute: AppNutritionRoute,
+  AppSettingsRoute: AppSettingsRoute,
+  AppWorkoutRoute: AppWorkoutRoute,
   AppIndexRoute: AppIndexRoute,
 }
 
